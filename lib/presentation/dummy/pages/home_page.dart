@@ -14,8 +14,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _codeController=TextEditingController();
-  final TextEditingController _birthdayController=TextEditingController();
+  final TextEditingController _codeController = TextEditingController();
+  final TextEditingController _birthdayController = TextEditingController();
 
   @override
   void dispose() {
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text ('اهلا بكم برجاء تسجيل الدخول',
+              const Text('اهلا بكم برجاء تسجيل الدخول',
                   style: TextStyle(fontSize: 18.0)),
               const SizedBox(height: 30.0),
               CustomTextFormField(
@@ -43,8 +43,7 @@ class _HomePageState extends State<HomePage> {
                 keyboardType: TextInputType.number,
                 hintText: 'hintText',
                 validator: (value) {
-                  if (value == null ||
-                      value.isEmpty ) {
+                  if (value == null || value.isEmpty) {
                     return 'Please enter right code';
                   }
                   return null;
