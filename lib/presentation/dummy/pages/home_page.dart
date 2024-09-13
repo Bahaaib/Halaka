@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('اهلا بكم برجاء تسجيل الدخول',
+              const Text ('اهلا بكم برجاء تسجيل الدخول',
                   style: TextStyle(fontSize: 18.0)),
               const SizedBox(height: 30.0),
               CustomTextFormField(
