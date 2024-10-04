@@ -1,7 +1,8 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:halaka/widgets/custom_elevated_button.dart';
-import 'package:halaka/widgets/text_form_field_widget.dart';
+import 'package:halaka/widgets/custom_text_form_field.dart';
+import 'package:intl/intl.dart';
 import 'halaka_screen.dart';
 
 @RoutePage()
@@ -39,28 +40,48 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 30.0),
               CustomTextFormField(
                 controller: _codeController,
-                labelText: 'labelText',
+                // labelText: 'labelText',
                 keyboardType: TextInputType.number,
-                hintText: 'hintText',
+                prefixIcon: Icons.lock,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter right code';
+                    return 'الرجاء ادخال الكود الصحيح';
                   }
                   return null;
                 },
+                labelText: ' كود الطالب', // Save the email value
               ),
               const SizedBox(height: 30.0),
-              CustomTextFormField(
-                hintText: 'ادخل تاريخ الميلاد الطالب',
-                labelText: 'enter student birthday',
-                prefixIcon: Icons.person,
-                controller: _birthdayController,
-                keyboardType: TextInputType.datetime,
-                validator: (value) {
-                  if (value == null || value.isEmpty || value == "") {
-                    return 'Please enter right birthday';
+              InkWell(
+                child: AbsorbPointer(
+                  child: CustomTextFormField(
+                    labelText: ' تاريخ ميلاد الطالب',
+                    prefixIcon: Icons.calendar_month,
+                    controller: _birthdayController,
+                    keyboardType: TextInputType.datetime,
+                    validator: (value) {
+                      if (value == null || value.isEmpty || value == "") {
+                        return 'الرجاء ادخال تاريخ ميلاد الطالب الصحيح';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                onTap: () async {
+                  DateTime? pickedDate = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(1990),
+                    lastDate: DateTime.now(),
+                  );
+
+                  if (pickedDate != null) {
+                    String formattedDate =
+                        DateFormat('yyyy-MM-dd').format(pickedDate);
+                    setState(() {
+                      _birthdayController.text = formattedDate;
+                    });
                   }
-                  return null;
                 },
               ),
               const SizedBox(height: 30.0),

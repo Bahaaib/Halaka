@@ -5,7 +5,6 @@ class CustomTextFormField extends StatelessWidget {
   final String labelText;
   final TextInputType keyboardType;
   final IconData? prefixIcon;
-  final String hintText;
   final TextInputType textInputType = TextInputType.number;
   final String? Function(String?)? validator;
 
@@ -16,7 +15,6 @@ class CustomTextFormField extends StatelessWidget {
     required this.validator,
     required this.keyboardType,
     this.prefixIcon,
-    required this.hintText,
   }) : super(key: key);
 
   @override
@@ -24,8 +22,8 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       validator: validator,
       controller: controller,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
-        hintText: hintText,
         labelText: labelText,
         prefixIcon: Icon(prefixIcon),
         border: OutlineInputBorder(
