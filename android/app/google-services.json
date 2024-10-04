@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "814574715760",
+    "firebase_url": "https://halaka-9a29a-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "halaka-9a29a",
+    "storage_bucket": "halaka-9a29a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814574715760:android:a8a7b9a9444e74092b05b5",
+        "android_client_info": {
+          "package_name": "com.example.halaka"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6jp-8c9VwPyL7zBPF5nnqkImvuRb3P88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
