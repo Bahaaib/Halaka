@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _codeController = TextEditingController();
   final TextEditingController _birthdayController = TextEditingController();
+  double _opacity = 0.0;
 
   @override
   void dispose() {
@@ -29,6 +30,7 @@ class _HomePageState extends State<HomePage> {
     _birthdayController.dispose();
     super.dispose();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +58,25 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      CodeStrings.welcomeText,
-                      style: TextStyle(fontSize: 18.0),
+                    TweenAnimationBuilder<double>(
+                      tween: Tween<double>(begin: 0, end: 1),
+                      duration: const Duration(seconds: 2),
+                      builder: (context, value, child) {
+                        return Opacity(
+                          opacity: value,
+                          child: Transform.scale(
+                            scale: value,
+                            child: child,
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        CodeStrings.welcomeText,
+                        style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.orange),
+                      ),
                     ),
                     const SizedBox(height: 30.0),
                     CustomTextFormField(

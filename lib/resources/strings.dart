@@ -23,6 +23,6 @@ class CodeStrings {
   static const String loginButtonText = 'تسجيل الدخول';
   static const String codeError = 'الرجاء ادخال الكود الصحيح';
   static const String birthDateError = 'الرجاء ادخال تاريخ ميلاد الطالب الصحيح';
-  static const String birthDateLabel = 'الرجاء ادخال تاريخ ميلاد الطالب الصحيح';
-  static const String codeLabel = 'الرجاء ادخال تاريخ ميلاد الطالب الصحيح';
+  static const String birthDateLabel = ' ادخل تاريخ ميلاد الطالب ';
+  static const String codeLabel = 'ادخل كود الطالب';
 }
