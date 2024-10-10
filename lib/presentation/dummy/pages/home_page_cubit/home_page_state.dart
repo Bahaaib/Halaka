@@ -1,17 +1,13 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+abstract class HomePageState {}
 
- abstract class HomePageState extends Cubit<HomePageState> {
-  HomePageState() : super(HomePageInitial());
-}
+class HomePageInitialState extends HomePageState {}
 
-class HomePageInitial extends HomePageState {}
+class HomePageLoadingState extends HomePageState {}
 
-class HomePageLoading extends HomePageState {}
+class HomePageSuccessState extends HomePageState {}
 
-class HomePageSuccess extends HomePageState {}
-
-class HomePageError extends HomePageState {
+class HomePageErrorState extends HomePageState {
   final String message;
 
-  HomePageError({required this.message});
+  HomePageErrorState({required this.message});
 }

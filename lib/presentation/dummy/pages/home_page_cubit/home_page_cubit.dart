@@ -1,14 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'home_page_state.dart';
 
-abstract class HomePageCubit extends Cubit<HomePageState> {
-  HomePageCubit(super.initialState);
+class HomePageCubit extends Cubit<HomePageState> {
+  HomePageCubit() : super(HomePageInitialState());
 
-  void validateForm() {
-    try {
-      //
-    } catch (e) {
-      emit(HomePageError(message: e.toString()));
-    }
+  Future<void> getStudent (String code, String birthday) async {
+   // emit(HomePageLoadingState());
+
+    emit(HomePageSuccessState());
+
+    //emit(HomePageErrorState(message: ('يجب ملئ الحقول بطريقه صحيحه')));
   }
 }
