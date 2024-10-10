@@ -35,6 +35,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       body: BlocProvider(
         create: (context) => HomePageCubit(),
         child: Padding(
@@ -75,10 +76,10 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold,
-                            color: Colors.orange),
+                            color: Colors.blueAccent),
                       ),
                     ),
-                    const SizedBox(height: 30.0),
+                    const SizedBox(height: 90.0),
                     CustomTextFormField(
                       controller: _codeController,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
