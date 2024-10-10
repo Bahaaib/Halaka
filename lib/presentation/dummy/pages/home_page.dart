@@ -6,7 +6,7 @@ import 'package:halaka/routing/main_router.gr.dart';
 import 'package:halaka/widgets/custom_elevated_button.dart';
 import 'package:halaka/widgets/custom_text_form_field.dart';
 import 'package:intl/intl.dart';
-import 'halaka_screen.dart';
+import '../../../resources/strings.dart';
 import 'home_page_cubit/home_page_cubit.dart';
 import 'home_page_cubit/home_page_state.dart';
 
@@ -41,7 +41,6 @@ class _HomePageState extends State<HomePage> {
             listener: (context, state) {
               if (state is HomePageSuccessState) {
                 context.router.push(const HalakaRoute());
-
               } else if (state is HomePageErrorState) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
@@ -57,8 +56,10 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('اهلا بكم برجاء تسجيل الدخول',
-                        style: TextStyle(fontSize: 18.0)),
+                    const Text(
+                      CodeStrings.welcomeText,
+                      style: TextStyle(fontSize: 18.0),
+                    ),
                     const SizedBox(height: 30.0),
                     CustomTextFormField(
                       controller: _codeController,
@@ -67,23 +68,23 @@ class _HomePageState extends State<HomePage> {
                       prefixIcon: Icons.lock,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'الرجاء ادخال الكود الصحيح';
+                          return CodeStrings.codeError;
                         }
                         return null;
                       },
-                      labelText: ' كود الطالب',
+                      labelText: CodeStrings.codeLabel,
                     ),
                     const SizedBox(height: 30.0),
                     InkWell(
                       child: AbsorbPointer(
                         child: CustomTextFormField(
-                          labelText: ' تاريخ ميلاد الطالب',
+                          labelText: CodeStrings.birthDateLabel,
                           prefixIcon: Icons.calendar_month,
                           controller: _birthdayController,
                           keyboardType: TextInputType.datetime,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'الرجاء ادخال تاريخ ميلاد الطالب الصحيح';
+                              return CodeStrings.birthDateError;
                             }
                             return null;
                           },
@@ -109,10 +110,11 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const SizedBox(height: 30.0),
                     CustomElevatedButton(
-                      label: 'تسجيل الدخول',
+                      label: CodeStrings.loginButtonText,
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          context.read<HomePageCubit>().getStudent( _codeController.text, _birthdayController.text);
+                          context.read<HomePageCubit>().getStudent(
+                              _codeController.text, _birthdayController.text);
                         }
                       },
                       backgroundColor: Colors.green,

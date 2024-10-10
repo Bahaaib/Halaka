@@ -13,7 +13,16 @@ class CodeStrings {
   ///  Add your API configs here ...
   static const String baseApi = 'http://54.209.72.235:9595';
   static const String registerApi = baseApi + '/register';
-  static const String uploadPersonalPhotoApi = baseApi + '/upload-personal-photo';
+  static const String uploadPersonalPhotoApi =
+      baseApi + '/upload-personal-photo';
   static const String tokenKey = '';
   static const String tokenValue = '';
+  static const String errorMessage = 'برجاء ملىء الحقول بطريقه صحيحه';
+  static const String welcomeText =
+      'أهلاً بكم في تطبيق حلقة برجاء تسجيل الدخول ';
+  static const String loginButtonText = 'تسجيل الدخول';
+  static const String codeError = 'الرجاء ادخال الكود الصحيح';
+  static const String birthDateError = 'الرجاء ادخال تاريخ ميلاد الطالب الصحيح';
+  static const String birthDateLabel = 'الرجاء ادخال تاريخ ميلاد الطالب الصحيح';
+  static const String codeLabel = 'الرجاء ادخال تاريخ ميلاد الطالب الصحيح';
 }

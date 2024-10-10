@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:halaka/resources/strings.dart';
 import 'home_page_state.dart';
 
 class HomePageCubit extends Cubit<HomePageState> {
@@ -9,6 +10,6 @@ class HomePageCubit extends Cubit<HomePageState> {
 
     emit(HomePageSuccessState());
 
-    //emit(HomePageErrorState(message: ('يجب ملئ الحقول بطريقه صحيحه')));
+    emit(HomePageErrorState(message: CodeStrings.errorMessage));
   }
 }
